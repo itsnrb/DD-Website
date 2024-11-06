@@ -14,7 +14,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
-    background-color: white;
+    background-color: black;
     border-bottom: 1px solid #e1e4e8;
 }
 
@@ -37,7 +37,7 @@ header nav a {
 }
 
 header nav .register {
-    color: #fff;
+    color: #ffffff;
     background-color: #e60023;
     padding: 0.5rem 1rem;
     border-radius: 5px;
@@ -45,7 +45,7 @@ header nav .register {
 
 header input[type="text"] {
     padding: 0.5rem;
-    border: 1px solid #ddd;
+    border: 1px solid white;
     border-radius: 5px;
     width: 200px;
 }
@@ -77,14 +77,48 @@ main h1 {
     overflow: hidden;
     display: inline-block;
     width: 100%;
-    position: relative; /* Set to relative to position child elements */
+    position: relative;
+    height: 300px; /* Set a fixed height for consistency; adjust as needed */
 }
 
-/* Ensuring images fill the container */
+/* Title style for top-right corner */
+.grid-item h2 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: right;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background to enhance readability */
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+    z-index: 2; /* Ensure title is on top of the image and overlay */
+}
+
+/* Hover effect using a pseudo-element */
+.grid-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: lightcyan;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1; /* Ensures the hover effect appears above the image */
+}
+
+.grid-item:hover::before {
+    opacity: 0.5; /* Adjust opacity for desired effect */
+}
+
+/* Ensuring images fully fill the container */
 .grid-item img {
     width: 100%;
-    height: auto;
-    object-fit: cover;
+    height: 100%;
+    object-fit: cover; /* Crop the image to fill the container without distortion */
 }
 
 /* Style for overlay text */
