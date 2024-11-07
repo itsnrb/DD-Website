@@ -1,0 +1,33 @@
+.top-banner {
+    position: relative; /* Make the top banner positionable */
+}
+
+.imgLogo {
+    position: absolute; /* Position the logo absolutely within the banner */
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto; /* Center the logo horizontally */
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1; /* Ensure the navbar stays on top */
+    background-color: lightgray; /* Match the background color of the header */
+}
+
+.top-banner, header {
+    transition: opacity 0.3s ease-in-out; /* Add a smooth transition effect */
+}
+
+/* When scrolling down, fade out the logo and keep the navbar fixed */
+body:not(:hover) .top-banner {
+    opacity: 0;
+}
+
+body:not(:hover) header {
+    opacity: 1;
+}
